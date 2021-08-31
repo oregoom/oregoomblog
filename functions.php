@@ -6,31 +6,31 @@
 function geko_check_update( $transient ) {
     if ( empty( $transient->checked ) ) {
         return $transient;
-      }
-      $theme_data = wp_get_theme(wp_get_theme()->template);
-      $theme_slug = $theme_data->get_template();
-      //Delete '-master' from the end of slug
-      $theme_uri_slug = preg_replace('/-master$/', '', $theme_slug);
-     
-     $remote_version = '0.0.0';
-     $style_css = wp_remote_get("https://raw.githubusercontent.com/oregoom/".$theme_uri_slug."/master/style.css")['body'];
-    if ( preg_match( '/^[ \t\/*#@]*' . preg_quote( 'Version', '/' ) . ':(.*)$/mi', $style_css, $match ) && $match[1] )
-         $remote_version = _cleanup_header_comment( $match[1] );
+    }
+
+    $theme_data = wp_get_theme(wp_get_theme()->template);
+    $theme_slug = $theme_data->get_template();
+
+    //Delete '-master' from the end of slug
+    $theme_uri_slug = preg_replace('/-master$/', '', $theme_slug);
     
-     if (version_compare($theme_data->version, $remote_version, '<')) {
-         $transient->response[$theme_slug] = array(
-             'theme'       => $theme_slug,
-             'new_version' => $remote_version,
-             'url'         => 'https://github.com/oregoom/'.$theme_uri_slug,
-             'package'     => 'https://github.com/oregoom/'.$theme_uri_slug.'/archive/master.zip',
-         );
-     }
-     return $transient;
- }
- add_filter( 'pre_set_site_transient_update_themes', 'geko_check_update' );
- 
- 
- 
+    $remote_version = '0.0.0';
+    $style_css = wp_remote_get("https://raw.githubusercontent.com/oregoom/".$theme_uri_slug."/master/style.css")['body'];
+    if ( preg_match( '/^[ \t\/*#@]*' . preg_quote( 'Version', '/' ) . ':(.*)$/mi', $style_css, $match ) && $match[1] )
+        $remote_version = _cleanup_header_comment( $match[1] );
+    
+    if (version_compare($theme_data->version, $remote_version, '<')) {
+        $transient->response[$theme_slug] = array(
+            'theme'       => $theme_slug,
+            'new_version' => $remote_version,
+            'url'         => 'https://github.com/oregoom/'.$theme_uri_slug,
+            'package'     => 'https://github.com/oregoom/'.$theme_uri_slug.'/archive/master.zip',
+        );
+    }
+    return $transient;
+}
+add_filter( 'pre_set_site_transient_update_themes', 'geko_check_update' );
+
 
 
 
@@ -111,7 +111,7 @@ function hb_add_style_the_content( $content = null ){
     $replace = array('<p style="line-height: 1.5; margin-bottom: 1.5rem; font-size: 1.125rem; color: #333;">');
 
 //    if(is_page_template('templates/template-curso.php')){
-          return str_replace( $search, $replace, $content );  
+        return str_replace( $search, $replace, $content );  
 //    } else {
 //        return $content;
 //    }       
@@ -234,7 +234,29 @@ function google_adsense_content_page_menu(){
 	    <?php do_settings_sections( 'template_oregoom_custom_admin_settings_group' ); ?>
             
             <table class="form-table" role="presentation">
-                <tbody>   
+                <tbody>
+
+                                    
+                    <!--CODE ADSENSE (300x250)-->
+                    <tr>
+                        <th scope="row">
+                            <label for="template_oregoom_uasr_google_adsense_yes">Usar Google AdSense</label>
+                        </th>
+                        <td>
+
+                            <div style="margin-bottom: 20px;">
+
+                                <input type="radio" <?php if(esc_textarea(get_option('template_oregoom_uasr_google_adsense')) == 'template_oregoom_uasr_google_adsense_not'){ echo 'checked'; } ?> id="template_oregoom_uasr_google_adsense_not" name="template_oregoom_uasr_google_adsense" value="template_oregoom_uasr_google_adsense_not">
+                                <label for="template_oregoom_uasr_google_adsense_not"><?php _e('Not', 'oregoom'); ?></label>
+                                
+                                <input type="radio" <?php if(esc_textarea(get_option('template_oregoom_uasr_google_adsense')) == 'template_oregoom_uasr_google_adsense_yes'){ echo 'checked'; } ?> id="template_oregoom_uasr_google_adsense_yes" name="template_oregoom_uasr_google_adsense" value="template_oregoom_uasr_google_adsense_yes" style="margin-left: 20px;">
+                                <label for="template_oregoom_uasr_google_adsense_yes"><?php _e('Yes', 'oregoom'); ?></label>
+
+                            </div>                            
+                            <p class="description">¿Estas listo para monitizar tu Sitio Web con Google AdSense?</p>
+                        </td>                        
+                    </tr> 
+
                     
                     <!--CODE ADSENSE (300x250)-->
                     <tr>
@@ -382,6 +404,8 @@ function google_adsense_content_page_menu(){
 
 function template_oregoom_register_options_admin_page() {
     
+    register_setting( 'template_oregoom_custom_admin_settings_group', 'template_oregoom_uasr_google_adsense');
+
     register_setting( 'template_oregoom_custom_admin_settings_group', 'template_oregoom_adsense_970_250');
     register_setting( 'template_oregoom_custom_admin_settings_group', 'template_oregoom_adsense_300_250');
     register_setting( 'template_oregoom_custom_admin_settings_group', 'template_oregoom_adsense_728_90');

@@ -1,7 +1,7 @@
 <!--<div style="position: -webkit-sticky; position: sticky; top: 10px;">-->
 
     <!--//GOOGLE ADSENSE (PC y Movil) -->
-    <?php if(get_option('template_oregoom_adsense_300_250') != ''){ ?>    
+    <?php if(get_option('template_oregoom_adsense_300_250') != ''  && esc_textarea(get_option('template_oregoom_uasr_google_adsense')) == 'template_oregoom_uasr_google_adsense_yes'){ ?>    
                 
         <div class="pb-4 text-center">
 
@@ -20,7 +20,7 @@
     } ?>
 
     <!--//GOOGLE ADSENSE (PC y Movil) -->
-    <?php if(get_option('template_oregoom_adsense_300_600') != ''){ ?>    
+    <?php if(get_option('template_oregoom_adsense_300_600') != ''  && esc_textarea(get_option('template_oregoom_uasr_google_adsense')) == 'template_oregoom_uasr_google_adsense_yes'){ ?>    
                 
         <div class="pb-4 text-center">
 

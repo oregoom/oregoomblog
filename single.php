@@ -5,9 +5,6 @@ if(have_posts()){
     while(have_posts()) : the_post(); ?>   
 
 
-
-
-
 <div class="pb-5">
 
 
@@ -28,21 +25,21 @@ if(have_posts()){
     
 
     <!--//GOOGLE ADSENSE 970x250 (PC) -->
-    <?php if(get_option('template_oregoom_adsense_970_250') != ''){ ?>    
+    <?php if(get_option('template_oregoom_adsense_970_250') != '' && esc_textarea(get_option('template_oregoom_uasr_google_adsense')) == 'template_oregoom_uasr_google_adsense_yes'){ ?>    
     
         <div class="pb-4 pt-1 text-center d-none d-xl-block">
 
             <?php  echo get_option('template_oregoom_adsense_970_250'); ?>
 
         </div>     
-    
+
     <?php } ?>
 
 
     
 
     <!--//GOOGLE ADSENSE 728x92 (PC) -->
-    <?php if(get_option('template_oregoom_adsense_728_90') != ''){ ?>    
+    <?php if(get_option('template_oregoom_adsense_728_90') != ''  && esc_textarea(get_option('template_oregoom_uasr_google_adsense')) == 'template_oregoom_uasr_google_adsense_yes'){ ?>    
     
         <div class="pb-4 pt-1 text-center d-none d-lg-block d-xl-none">
 
@@ -58,14 +55,13 @@ if(have_posts()){
         
         foreach((get_the_category()) as $category)
         {
-            // echo get_category_link( $category->term_id ); // Tema Para Venta
 
             $ID_cat = $category->term_id; ?>
         
             <div class="text-center mb-3 d-none d-lg-block">
 
-                <a class="text-center" style="font-family: 'Poppins', Sans-serif;" href="<?php echo esc_url(home_url().'/'.$category->slug.'/'); ?>">
-                <!--<a class="text-center" style="font-family: 'Poppins', Sans-serif;" href="<?php echo esc_url(home_url().'/'); ?>">-->
+                <!--<a class="text-center" style="font-family: 'Poppins', Sans-serif;" href="<?php echo get_category_link( $ID_cat ); ?>">-->
+                <a class="text-center" style="font-family: 'Poppins', Sans-serif;" href="<?php echo esc_url(home_url().'/'); ?>">
                     <?php echo $category->name; ?>
                 </a>
 
@@ -123,21 +119,21 @@ if(have_posts()){
                     <amp-lightbox id="my-lightbox-<?php echo $ID_YouTube; ?>" layout="nodisplay">
                         <div class="lightbox" tabindex="0">
 
-                             <!-- Vídeo de YouTube -->
-                             <div class="container">
-                                 <div class="overflow-hidden">
+                            <!-- Vídeo de YouTube -->
+                            <div class="container">
+                                <div class="overflow-hidden">
                                     <!--<h5 class="text-light float-left">Alejandro Bullón</h5>-->
                                     <span role="button" class="text-light h2 float-right" on="tap:my-lightbox-<?php echo $ID_YouTube; ?>.close">&times;</span>
-                                  </div>
+                                </div>
 
-                                  <div class="">
+                                <div class="">
                                     <amp-youtube
                                     data-videoid="<?php echo $ID_YouTube; ?>"
                                     layout="responsive"
                                     width="480"
                                     height="270"
                                     ></amp-youtube>
-                                  </div>
+                                </div>
                             </div>
 
                         </div>
@@ -165,7 +161,7 @@ if(have_posts()){
                 
                 
                 <!--//GOOGLE ADSENSE (Movil) -->
-                <?php if(get_option('template_oregoom_adsense_auto') != ''){ ?>     
+                <?php if(get_option('template_oregoom_adsense_auto') != ''  && esc_textarea(get_option('template_oregoom_uasr_google_adsense')) == 'template_oregoom_uasr_google_adsense_yes'){ ?>     
 
                     <div class="pb-4 d-lg-none text-center">
 
@@ -174,24 +170,9 @@ if(have_posts()){
                     </div>     
 
                 <?php } ?>
-                
-                
-                
+
                 
             <?php the_content(); ?>   
-                
-                
-<!--                <div class="mb-5 mt-5">
-                    <h2 class="border-bottom"><span class="h4">¡Adelante! deja tu comentario</span></h2>
-                    <amp-facebook-comments
-                        width="486"
-                        height="657"
-                        layout="responsive"
-                        data-numposts="5"
-                        data-href="<?php the_permalink() ?>"
-                    >
-                    </amp-facebook-comments>
-                </div>-->
                 
                 
             </div>
@@ -200,14 +181,8 @@ if(have_posts()){
 
                 <?php get_sidebar('sidebar'); ?>            
                 
-                <!--<div class="sticky-top pt-2 mb-5 text-center">                    
-                    <a href="https://oregoom.com/curso-de-wordpress/" target="_blank">
-                        <img src="https://oregoom.com/wp-content/uploads/2021/03/curso-de-wordpress-300-600.jpg">
-                    </a>
-                </div>-->
-
                 <!--//THEME ADS (PC) -->
-                <?php if(get_option('template_oregoom_theme_ads_300_600') != ''){ ?>    
+                <?php if(get_option('template_oregoom_theme_ads_300_600') != ''  && esc_textarea(get_option('template_oregoom_uasr_google_adsense')) == 'template_oregoom_uasr_google_adsense_yes'){ ?>    
                             
                     <div class="pb-4 text-center sticky-top">
             
@@ -224,8 +199,6 @@ if(have_posts()){
     </div>
 
 </div>
-
-
 
 
 
@@ -249,11 +222,10 @@ if(have_posts()){
         <a href="https://oregoom.com/curso-de-wordpress/" target="_blank" class="btn btn-warning btn-lg rounded-pill pl-5 pr-5">
             <strong>Me Apunto Ahora</strong>
         </a>
-               
+        
     </div>
     
 </div>
-
 
 
 <div class="container pt-5">                        
@@ -317,12 +289,10 @@ if(have_posts()){
 
 
 
-
-
 <div class="container pt-5 pb-5">
     
     <!--//GOOGLE ADSENSE (PC y Movil) -->
-    <?php if(get_option('template_oregoom_adsense_auto') != ''){ ?>    
+    <?php if(get_option('template_oregoom_adsense_auto') != ''  && esc_textarea(get_option('template_oregoom_uasr_google_adsense')) == 'template_oregoom_uasr_google_adsense_yes'){ ?>    
     
         <div class="pb-3 pt-3 text-center">
 
