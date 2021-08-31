@@ -6,6 +6,23 @@
     <title><?php wp_title(); ?></title>           
     
     <style amp-custom>
+
+
+        /*Paginación*/
+        .page-numbers{
+            background-color: #ffffff;
+            padding-left: 10px;
+            padding-right: 10px;
+            padding-bottom: 4px;
+            border-radius: 5px;
+        }
+        .current{
+            /*background-color: #006ba1;*/
+            color: #000000;
+        }
+
+
+
         
         .lightbox { 
             /*background: rgba(0,0,0,.8);*/
