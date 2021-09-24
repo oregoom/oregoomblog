@@ -10,11 +10,11 @@ if(have_posts()){
 
     <?php if(is_single()){ ?>
 
-        <nav aria-label="breadcrumb" class="container d-none d-md-block pb-0 mb-0 mt-1">
+        <nav aria-label="breadcrumb" class="container d-none d-md-block pb-0 mb-0 mt-3 mb-3">
 
             <ol class="breadcrumb pl-0 pr-0 mb-0" style="background: #ffffff; font-size: 13px;">
-                <li class="breadcrumb-item"><a href="<?php echo esc_url('https://oregoom.com/'); ?>">Inicio</a></li>
-                <li class="breadcrumb-item"><a href="<?php echo esc_url(home_url()); ?>">WordPress</a></li>
+                <li class="breadcrumb-item"><a class="text-decoration-none" href="<?php echo esc_url('https://oregoom.com/'); ?>">Inicio</a></li>
+                <li class="breadcrumb-item"><a class="text-decoration-none" href="<?php echo esc_url(home_url()); ?>">WordPress</a></li>
                 <li class="breadcrumb-item active text-dark" aria-current="page"><?php the_title(); ?></li>
             </ol>
 
@@ -61,7 +61,7 @@ if(have_posts()){
             <div class="text-center mb-3 d-none d-lg-block">
 
                 <!--<a class="text-center" style="font-family: 'Poppins', Sans-serif;" href="<?php echo get_category_link( $ID_cat ); ?>">-->
-                <a class="text-center" style="font-family: 'Poppins', Sans-serif;" href="<?php echo esc_url(home_url().'/'); ?>">
+                <a class="text-center text-decoration-none" style="font-family: 'Poppins', Sans-serif;" href="<?php echo esc_url(home_url().'/'); ?>">
                     <?php echo $category->name; ?>
                 </a>
 
@@ -107,44 +107,36 @@ if(have_posts()){
         
         
         <div class="row">
-            
-            <div class="col-xl-8 col-lg-7 pr-xl-4">               
-            
+
+            <div class="col-2">
+
+                <!--//GOOGLE ADSENSE 160x600 (PC) -->
+                <?php if(get_option('template_oregoom_adsense_160_600') != ''  && esc_textarea(get_option('template_oregoom_uasr_google_adsense')) == 'template_oregoom_uasr_google_adsense_yes'){ ?>    
+                    
+                    <div class="pb-4 text-center">
+
+                        <?php  echo get_option('template_oregoom_adsense_160_600'); ?>
+
+                    </div>     
+
+                <?php } ?>
+
+            </div>
+            <div class="col-7">
             
                 <!-- Vídeo de YouTube (Escritorio) -->
                 <?php if(get_post_meta(get_the_ID(), 'hb_idyoutube_post', true)){ 
                     
                     $ID_YouTube = get_post_meta(get_the_ID(), 'hb_idyoutube_post', true); ?>
-                
-                    <amp-lightbox id="my-lightbox-<?php echo $ID_YouTube; ?>" layout="nodisplay">
-                        <div class="lightbox" tabindex="0">
-
-                            <!-- Vídeo de YouTube -->
-                            <div class="container">
-                                <div class="overflow-hidden">
-                                    <!--<h5 class="text-light float-left">Alejandro Bullón</h5>-->
-                                    <span role="button" class="text-light h2 float-right" on="tap:my-lightbox-<?php echo $ID_YouTube; ?>.close">&times;</span>
-                                </div>
-
-                                <div class="">
-                                    <amp-youtube
-                                    data-videoid="<?php echo $ID_YouTube; ?>"
-                                    layout="responsive"
-                                    width="480"
-                                    height="270"
-                                    ></amp-youtube>
-                                </div>
-                            </div>
-
-                        </div>
-                    </amp-lightbox>
 
                     <div class="pb-4 text-center">
-                        <img src="<?php echo get_the_post_thumbnail_url(); ?>" class="img-fluid" on="tap:my-lightbox-<?php echo $ID_YouTube; ?>">
+                        <a target="_blank" href="https://www.youtube.com/watch?v=<?php echo $ID_YouTube; ?>">
+                            <img src="<?php echo get_the_post_thumbnail_url(); ?>" class="img-fluid">
+                        </a>                        
                     </div>
                 
-                    <div class="text-center mb-4">
-                        <button type="button" class="btn btn-primary btn-lg btn-block rounded-pill" on="tap:my-lightbox-<?php echo $ID_YouTube; ?>">Ver video tutorial</button>
+                    <div class="text-center mb-4 d-grid ">
+                        <a class="btn btn-primary btn-lg btn-block rounded-pill" target="_blank" href="https://www.youtube.com/watch?v=<?php echo $ID_YouTube; ?>">Ver video tutorial</button>
                     </div>
 
                 <?php } else {
@@ -172,14 +164,24 @@ if(have_posts()){
                 <?php } ?>
 
                 
-            <?php the_content(); ?>   
-                
-                
+                <?php the_content(); ?>   
             </div>
-            
-            <div class="col-xl-4 col-lg-5 pl-lg-4">  
+            <div class="col-3">
 
-                <?php get_sidebar('sidebar'); ?>            
+                <!--//THEME ADS (PC) -->
+                <?php if(get_option('template_oregoom_theme_ads_300_250') != ''  && esc_textarea(get_option('template_oregoom_uasr_google_adsense')) == 'template_oregoom_uasr_google_adsense_yes'){ ?>    
+                            
+                    <div class="pb-4 text-center">
+            
+                        <?php  echo get_option('template_oregoom_theme_ads_300_250'); ?>
+            
+                    </div>    
+                
+                <?php } ?>
+
+
+                <?php get_sidebar('sidebar'); ?>   
+                
                 
                 <!--//THEME ADS (PC) -->
                 <?php if(get_option('template_oregoom_theme_ads_300_600') != ''  && esc_textarea(get_option('template_oregoom_uasr_google_adsense')) == 'template_oregoom_uasr_google_adsense_yes'){ ?>    
@@ -191,9 +193,9 @@ if(have_posts()){
                     </div>    
                 
                 <?php } ?>
-                
+
             </div>
-            
+
         </div>
         
     </div>
@@ -209,9 +211,13 @@ if(have_posts()){
         
         <p class="display-4"><strong>¡Comienza Ahora!</strong></p>
         
-        <img src="https://oregoom.com/wp-content/uploads/2020/05/arrow-silver-1.png" class="pb-4 img-fluid">
-        
-        <img src="https://oregoom.com/wp-content/uploads/2020/05/diseno-cajas-gral-2.png" class="pb-4 img-fluid">
+        <div>
+            <img src="https://oregoom.com/wp-content/uploads/2020/05/arrow-silver-1.png" class="pb-4 img-fluid">
+        </div>
+
+        <div>
+            <img src="https://oregoom.com/wp-content/uploads/2020/05/diseno-cajas-gral-2.png" class="pb-4 img-fluid">
+        </div>
         
         <p class="display-4"><strong>Curso Completo de WordPress</strong></p>
         
@@ -219,7 +225,7 @@ if(have_posts()){
         
         <p>Aprender WordPress es invertir en tu futuro personal y profesional a medio y largo plazo. Y tú estás a un paso de aprender a crear páginas y sitios webs con el mejor curso sobre WordPress que hay en la actualidad.</p>
         
-        <a href="https://oregoom.com/curso-de-wordpress/" target="_blank" class="btn btn-warning btn-lg rounded-pill pl-5 pr-5">
+        <a href="https://oregoom.com/curso-de-wordpress/" target="_blank" class="btn btn-warning btn-lg rounded-pill ps-5 pe-5 pt-3 pb-3">
             <strong>Me Apunto Ahora</strong>
         </a>
         
@@ -243,7 +249,7 @@ if(have_posts()){
                     'post_type' => 'post',
                     'orderby' => 'rand',
                     'post_status' => 'publish',
-                    'posts_per_page' => 6,
+                    'posts_per_page' => 8,
                     'post__not_in' => $NOT_post
                 ));   
 
@@ -251,7 +257,7 @@ if(have_posts()){
 
                 if( has_post_thumbnail() ) { ?>
 
-                    <div class="col-xl-4 col-lg-6 col-md-4 col-sm-6 pb-3">
+                    <div class="col-xxl-3 col-xl-4 col-lg-6 col-md-4 col-sm-6 pb-3">
 
                         <div class="shadow-lg rounded">   
                             
@@ -261,7 +267,7 @@ if(have_posts()){
 
                             <div class="p-4">
                                 
-                                <a class="text-dark" href="<?php the_permalink(); ?>">
+                                <a class="text-dark text-decoration-none" href="<?php the_permalink(); ?>">
                                     
                                     <h3 class="h5" style="font-family: Raleway, sans-serif; line-height: 1.2em;">
                                         <strong><?php the_title(); ?></strong>

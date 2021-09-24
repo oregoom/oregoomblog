@@ -71,19 +71,19 @@ add_action( 'widgets_init', 'oregoom_blog_registrar_areas');
 function bootstrap_js() {
 
         // Incluir Bootstrap CSS  
-        wp_enqueue_style( 'bootstrap_css', 
+        /*wp_enqueue_style( 'bootstrap_css', 
 				'https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css', 
 				array(), 
 				'4.6.0'
-				);
+				);*/
         
         
         // Incluir Bootstrap 5.1 CSS  
-        //wp_enqueue_style( 'bootstrap_css', 
-				//'https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css', 
-				//array(), 
-				//'5.1.0'
-				//);
+        wp_enqueue_style( 'bootstrap_css', 
+				'https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css', 
+				array(), 
+				'5.1.0'
+				);
 
 }
 add_action( 'wp_enqueue_scripts', 'bootstrap_js');
