@@ -71,7 +71,7 @@ if(have_posts()){
         
 
 
-        <h1 class="mb-3 mt-md-0 mt-3 text-center" style="font-family: 'Poppins', Sans-serif; font-weight: bold;">
+        <h1 id="oregoom-1140-width" class="me-auto ms-auto mb-3 mt-md-0 mt-3 text-center" style="font-family: 'Poppins', Sans-serif; font-weight: bold;">
             <?php the_title(); ?>
         </h1>
         

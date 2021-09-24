@@ -182,98 +182,76 @@
         
         
         <header>
-            <nav class="navbar navbar-expand-lg navbar-light shadow-sm">
-                <div class="container"><?php
+        <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
 
-                    if ( has_custom_logo() ) {
-                        the_custom_logo();
-                    } else {
-                        echo get_bloginfo();
-                    } ?>  
-                    
-                    <!--Menú movil-->
-                    <div class="navbar-toggler rounded-circle p-3 mb-5 mr-4 bg-white border-0" style="position: fixed; bottom: 0px; right: 0px; z-index: 1000; box-shadow: rgba(0, 0, 0, 0.50) 0px 5px 10px;" role="button" aria-label="open sidebar" on="tap:sidebar.open" tabindex="0">
-                        <span class="navbar-toggler-icon"></span>
-                    </div>
-                    
+<div class="container"><?php
 
-                    <div class="me-0 navbar-nav my my-lg-0 navbar-nav-scroll">
-                        
-                        <div class="collapse navbar-collapse">
-                            
-                            <ul class="navbar-nav my my-lg-0 navbar-nav-scroll">
+        if ( has_custom_logo() ) {
+            the_custom_logo();
+        } else {
+            echo get_bloginfo();
+        } ?>
 
-                                <?php oregoom_navegation_menus(); ?>
+    <!--Boton de Menú (Movil)-->
+    <button class="navbar-toggler border-0" type="button" aria-label="open sidebar" on="tap:sidebar-top.open" tabindex="0">
+        <span class="navbar-toggler-icon"></span>
+    </button>
 
-                            </ul>
-                        </div>
-                        
-                    </div>
 
-                    <amp-sidebar id="sidebar" class="bg-white" layout="nodisplay" side="right">
-                        
-                        <ul class="list-group border-bottom rounded-0">
-                            
-                            <li class="border-0 list-group-item d-flex justify-content-between align-items-center"><?php
-                            
-                                if ( has_custom_logo() ) {
-                                    the_custom_logo();
-                                } else {
-                                    echo get_bloginfo();
-                                } ?>
-                                
-                                <!--Botón de Close menú-->
-                                <span id="btn-sidebarclose" on="tap:sidebar.close" >X</span>
-                                
-                            </li>
-                            
-                        </ul>
-                        
-                        
-                        <div class="navbar-collapse pt-3 p-3">
-                            
-                            <ul class="navbar-nav">
 
-                                <?php oregoom_navegation_menus(); ?>
+    <div class="collapse navbar-collapse ms-3" id="navbarSupportedContent">
 
-                            </ul>
-                            
-                        </div>
-                        
-                    </amp-sidebar>
-                    
-                </div>
-            </nav>
-            
-            
-            
-            
-            
-            
-            <!--Buscar en pantalla completa Movil-->
-            <amp-lightbox id="my-search" layout="nodisplay">
-                <div class="lightbox shadow pb-2 pt-2" tabindex="0" style="z-index: 1001;">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
-                    <!-- Vídeo de YouTube -->
-                    <div class="container">
-                        
-                        <div class="overflow-hidden">
-                            <span role="button" class="text-light h2 float-right text-dark" on="tap:my-search.close">&times;</span>
-                        </div>
+            <?php oregoom_navegation_menus(); ?>
 
-                        <div class="text-center mb-2"><?php
-                            if ( has_custom_logo() ) {
-                                the_custom_logo();
-                            } else {
-                                echo get_bloginfo();
-                            } ?>
-                        </div>
+        </ul>
 
-                        <?php get_search_form(); ?> 
+        <div class="d-flex">
+            <a class="btn btn-outline-primary me-2 d-none d-xl-block" href="https://oregoom.com/precios/" target="_self" role="button">Precios y planes</a>
+            <a class="btn btn btn-primary" href="https://oregoom.com/cursos/" target="_blank" role="button">Cursos</a>
+        </div>
 
-                    </div>
+    </div>
 
-                </div>
-            </amp-lightbox>
+    <!--Menú Movil-->
+    <amp-sidebar id="sidebar-top" class="bg-white" layout="nodisplay" side="right">
+
+        <div class="p-2 pe-3 border-bottom d-flex justify-content-between align-items-center">
+                
+                <?php
+
+                if ( has_custom_logo() ) {
+                    the_custom_logo();
+                } else {
+                    echo get_bloginfo();
+                } ?>
+
+                <!--Botón de Close menú-->
+                <span class="rounded-circle ms-3" id="btn-sidebarclose" on="tap:sidebar-top.close" >X</span>
+
+        </div>
+
+        <div class="navbar-collapse pt-3 p-3">
+
+            <ul class="navbar-nav">
+
+                <?php oregoom_navegation_menus(); ?>
+
+                <li class="nav-item mb-2 mt-2">
+                    <a class="btn btn-outline-primary" href="https://oregoom.com/precios/" target="_self" role="button">Precios y planes</a>
+                </li>
+                <li class="nav-item">
+                    <a class="btn btn btn-primary" href="https://oregoom.com/cursos/" target="_blank" role="button">Cursos</a>
+                </li>
+
+            </ul>
+
+        </div>
+
+    </amp-sidebar>
+
+</div>
+</nav>
             
         </header>

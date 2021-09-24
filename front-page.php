@@ -71,7 +71,7 @@ if(have_posts()){
                     'post_type' => 'post',
                     'orderby' => 'DESC',
                     'post_status' => 'publish',
-                    'posts_per_page' => 6
+                    'posts_per_page' => 12
                 ));   
 
             while ($wordpress_query->have_posts()) : $wordpress_query->the_post(); 
