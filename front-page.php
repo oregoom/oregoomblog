@@ -6,7 +6,7 @@ if(have_posts()){
     
     while(have_posts()) : the_post(); ?>
 
-<main class="container mb-5 mt-lg-5 mt-4">
+<main class="container mb-5 mt-lg-5 mt-4" id="oregoom-1140-width">
 
 
 <h1 class="text-center"><strong><?php the_title(); ?></strong></h1>
@@ -87,7 +87,7 @@ if(have_posts()){
                         </a>
 
                         <div class="p-4">
-                            <a class="text-dark" href="<?php the_permalink(); ?>">
+                            <a class="text-dark text-decoration-none" href="<?php the_permalink(); ?>">
                                 <h3 class="h5" style="font-family: Raleway, sans-serif; line-height: 1.2em;">
                                     <strong><?php the_title(); ?></strong>
                                 </h3>
