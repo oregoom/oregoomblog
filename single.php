@@ -108,7 +108,7 @@ if(have_posts()){
         
         <div class="row">
 
-            <div class="col-2">
+            <div class="col-xxl-2 d-none d-xxl-block">
 
                 <!--//GOOGLE ADSENSE 160x600 (PC) -->
                 <?php if(get_option('template_oregoom_adsense_160_600') != ''  && esc_textarea(get_option('template_oregoom_uasr_google_adsense')) == 'template_oregoom_uasr_google_adsense_yes'){ ?>    
@@ -122,7 +122,7 @@ if(have_posts()){
                 <?php } ?>
 
             </div>
-            <div class="col-7">
+            <div class="col-xxl-7 col-xl-8 col-lg-7">
             
                 <!-- Vídeo de YouTube (Escritorio) -->
                 <?php if(get_post_meta(get_the_ID(), 'hb_idyoutube_post', true)){ 
@@ -166,7 +166,7 @@ if(have_posts()){
                 
                 <?php the_content(); ?>   
             </div>
-            <div class="col-3">
+            <div class="col-xxl-3 col-xl-4 col-lg-5">
 
                 <!--//THEME ADS (PC) -->
                 <?php if(get_option('template_oregoom_theme_ads_300_250') != ''  && esc_textarea(get_option('template_oregoom_uasr_google_adsense')) == 'template_oregoom_uasr_google_adsense_yes'){ ?>    
@@ -205,89 +205,87 @@ if(have_posts()){
 
 
 
-<div>
     
-    <div class="container pt-2 pb-5 text-center">
-        
-        <p class="display-4"><strong>¡Comienza Ahora!</strong></p>
-        
-        <div>
-            <img src="https://oregoom.com/wp-content/uploads/2020/05/arrow-silver-1.png" class="pb-4 img-fluid">
-        </div>
-
-        <div>
-            <img src="https://oregoom.com/wp-content/uploads/2020/05/diseno-cajas-gral-2.png" class="pb-4 img-fluid">
-        </div>
-        
-        <p class="display-4"><strong>Curso Completo de WordPress</strong></p>
-        
-        <p class="h1">Tema Divi Gratis</p>
-        
-        <p>Aprender WordPress es invertir en tu futuro personal y profesional a medio y largo plazo. Y tú estás a un paso de aprender a crear páginas y sitios webs con el mejor curso sobre WordPress que hay en la actualidad.</p>
-        
-        <a href="https://oregoom.com/curso-de-wordpress/" target="_blank" class="btn btn-warning btn-lg rounded-pill ps-5 pe-5 pt-3 pb-3">
-            <strong>Me Apunto Ahora</strong>
-        </a>
-        
+<div class="container pt-2 pb-5 text-center" id="oregoom-1140-width">
+    
+    <p class="display-4"><strong>¡Comienza Ahora!</strong></p>
+    
+    <div>
+        <img src="https://oregoom.com/wp-content/uploads/2020/05/arrow-silver-1.png" class="pb-4 img-fluid">
     </div>
+
+    <div>
+        <img src="https://oregoom.com/wp-content/uploads/2020/05/diseno-cajas-gral-2.png" class="pb-4 img-fluid">
+    </div>
+    
+    <p class="display-4"><strong>Curso Completo de WordPress</strong></p>
+    
+    <p class="h1">Tema Divi Gratis</p>
+    
+    <p>Aprender WordPress es invertir en tu futuro personal y profesional a medio y largo plazo. Y tú estás a un paso de aprender a crear páginas y sitios webs con el mejor curso sobre WordPress que hay en la actualidad.</p>
+    
+    <a href="https://oregoom.com/curso-de-wordpress/" target="_blank" class="btn btn-warning btn-lg rounded-pill ps-5 pe-5 pt-2 pb-2">
+        <strong>Me Apunto Ahora</strong>
+    </a>
     
 </div>
 
 
-<div class="container pt-5">                        
+<div class="container pt-5" id="oregoom-1140-width">                        
                 
     <h2 class="border-bottom"><span class="h4">Vea también</span></h2>
 
     <div class="row pt-4 pb-3">
 
-            <?php 
-            //Post que no deben de mostrar en la consulta
-            $NOT_post[] = get_the_ID();
+        <?php 
 
-            //Consulta que pertenece a una categoria específica 
-            $wordpress_query = new WP_Query( array( 
-                    'post_type' => 'post',
-                    'orderby' => 'rand',
-                    'post_status' => 'publish',
-                    'posts_per_page' => 8,
-                    'post__not_in' => $NOT_post
-                ));   
+        //Post que no deben de mostrar en la consulta
+        $NOT_post[] = get_the_ID();
 
-            while ($wordpress_query->have_posts()) : $wordpress_query->the_post(); 
+        //Consulta que pertenece a una categoria específica 
+        $wordpress_query = new WP_Query( array( 
+                'post_type' => 'post',
+                'orderby' => 'rand',
+                'post_status' => 'publish',
+                'posts_per_page' => 6,
+                'post__not_in' => $NOT_post
+            ));   
 
-                if( has_post_thumbnail() ) { ?>
+        while ($wordpress_query->have_posts()) : $wordpress_query->the_post(); 
 
-                    <div class="col-xxl-3 col-xl-4 col-lg-6 col-md-4 col-sm-6 pb-3">
+            if( has_post_thumbnail() ) { ?>
 
-                        <div class="shadow-lg rounded">   
+                <div class="col-xxl-4 col-xl-4 col-lg-6 col-md-4 col-sm-6 pb-3">
+
+                    <div class="shadow-lg rounded">   
+                        
+                        <a class="text-dark" href="<?php the_permalink(); ?>">
+                            <?php the_post_thumbnail('full', array( 'class' => 'img-fluid' )); ?>
+                        </a>
+
+                        <div class="p-4">
                             
-                            <a class="text-dark" href="<?php the_permalink(); ?>">
-                                <?php the_post_thumbnail('full', array( 'class' => 'img-fluid' )); ?>
+                            <a class="text-dark text-decoration-none" href="<?php the_permalink(); ?>">
+                                
+                                <h3 class="h5" style="font-family: Raleway, sans-serif; line-height: 1.2em;">
+                                    <strong><?php the_title(); ?></strong>
+                                </h3>
+                                
                             </a>
-
-                            <div class="p-4">
-                                
-                                <a class="text-dark text-decoration-none" href="<?php the_permalink(); ?>">
-                                    
-                                    <h3 class="h5" style="font-family: Raleway, sans-serif; line-height: 1.2em;">
-                                        <strong><?php the_title(); ?></strong>
-                                    </h3>
-                                    
-                                </a>
-                                
-                                <p> <?php the_excerpt(); ?> </p>
-                                
-                            </div>
+                            
+                            <p> <?php the_excerpt(); ?> </p>
                             
                         </div>
                         
-                    </div> <?php 
-                
-                }                    
-
-            endwhile;
+                    </div>
+                    
+                </div> <?php 
             
-            wp_reset_postdata(); ?>
+            }                    
+
+        endwhile;
+        
+        wp_reset_postdata(); ?>
 
     </div>
     

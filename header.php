@@ -126,6 +126,14 @@
             }
             
         }
+
+        @media (min-width: 1199.98px) {
+
+            #oregoom-1140-width{
+                width: 1140px !important;
+            }
+
+        }
         
         
     </style>

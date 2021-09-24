@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-<div class="container mb-5 mt-lg-5 mt-4 ">
+<div class="container mb-5 mt-lg-5 mt-4">
 
     <div class="">
 
