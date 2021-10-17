@@ -106,67 +106,63 @@ if(have_posts()){
         </div>
         
         
-        <div class="row">
+        <div class="row px-xxl-5">
 
-            <div class="col-xxl-2 d-none d-xxl-block">
+            <div class="col-xxl-9 col-xl-8 col-lg-9">
 
-                <!--//GOOGLE ADSENSE 160x600 (PC) -->
-                <?php if(get_option('template_oregoom_adsense_160_600') != ''  && esc_textarea(get_option('template_oregoom_uasr_google_adsense')) == 'template_oregoom_uasr_google_adsense_yes'){ ?>    
+                <div class="pe-xxl-5">
+                
+                    <!-- Vídeo de YouTube (Escritorio) -->
+                    <?php if(get_post_meta(get_the_ID(), 'hb_idyoutube_post', true)){ 
+                        
+                        $ID_YouTube = get_post_meta(get_the_ID(), 'hb_idyoutube_post', true); ?>
+
+                        <div class="pb-4 text-center">
+                            <a target="_blank" href="https://www.youtube.com/watch?v=<?php echo $ID_YouTube; ?>">
+                                <img src="<?php echo get_the_post_thumbnail_url(); ?>" class="img-fluid">
+                            </a>                        
+                        </div>
                     
-                    <div class="pb-4 text-center">
+                        <div class="text-center mb-4 d-grid ">
+                            <a class="btn btn-primary btn-lg btn-block rounded-pill" target="_blank" href="https://www.youtube.com/watch?v=<?php echo $ID_YouTube; ?>">Ver video tutorial</button>
+                        </div>
 
-                        <?php  echo get_option('template_oregoom_adsense_160_600'); ?>
+                    <?php } else {
+                        
+                        //IMG destacada de POST
+                        if( has_post_thumbnail() ) {
 
-                    </div>     
+                            the_post_thumbnail('full', array( 'class' => 'img-fluid mb-4' )); 
 
-                <?php } ?>
+                        } 
+                        
+                    } ?>
+                    
+                    
+                    
+                    <!--//GOOGLE ADSENSE (Movil) -->
+                    <?php if(get_option('template_oregoom_adsense_auto') != ''  && esc_textarea(get_option('template_oregoom_uasr_google_adsense')) == 'template_oregoom_uasr_google_adsense_yes'){ ?>     
+
+                        <div class="pb-4 d-lg-none text-center">
+
+                            <?php  echo get_option('template_oregoom_adsense_auto'); ?>
+
+                        </div>     
+
+                    <?php } ?>
+                        
+                    <div class="px-xxl-5 px-xl-4">
+
+                        <?php the_content(); ?>  
+
+                    </div>                    
+                     
+
+                </div>
 
             </div>
-            <div class="col-xxl-7 col-xl-8 col-lg-7">
-            
-                <!-- Vídeo de YouTube (Escritorio) -->
-                <?php if(get_post_meta(get_the_ID(), 'hb_idyoutube_post', true)){ 
-                    
-                    $ID_YouTube = get_post_meta(get_the_ID(), 'hb_idyoutube_post', true); ?>
+            <div class="col-xxl-3 col-xl-4 col-lg-3">
 
-                    <div class="pb-4 text-center">
-                        <a target="_blank" href="https://www.youtube.com/watch?v=<?php echo $ID_YouTube; ?>">
-                            <img src="<?php echo get_the_post_thumbnail_url(); ?>" class="img-fluid">
-                        </a>                        
-                    </div>
-                
-                    <div class="text-center mb-4 d-grid ">
-                        <a class="btn btn-primary btn-lg btn-block rounded-pill" target="_blank" href="https://www.youtube.com/watch?v=<?php echo $ID_YouTube; ?>">Ver video tutorial</button>
-                    </div>
-
-                <?php } else {
-                    
-                    //IMG destacada de POST
-                    if( has_post_thumbnail() ) {
-
-                        the_post_thumbnail('full', array( 'class' => 'img-fluid mb-4' )); 
-
-                    } 
-                    
-                } ?>
-                
-                
-                
-                <!--//GOOGLE ADSENSE (Movil) -->
-                <?php if(get_option('template_oregoom_adsense_auto') != ''  && esc_textarea(get_option('template_oregoom_uasr_google_adsense')) == 'template_oregoom_uasr_google_adsense_yes'){ ?>     
-
-                    <div class="pb-4 d-lg-none text-center">
-
-                        <?php  echo get_option('template_oregoom_adsense_auto'); ?>
-
-                    </div>     
-
-                <?php } ?>
-
-                
-                <?php the_content(); ?>   
-            </div>
-            <div class="col-xxl-3 col-xl-4 col-lg-5">
 
                 <!--//THEME ADS (PC) -->
                 <?php if(get_option('template_oregoom_theme_ads_300_250') != ''  && esc_textarea(get_option('template_oregoom_uasr_google_adsense')) == 'template_oregoom_uasr_google_adsense_yes'){ ?>    
@@ -180,7 +176,12 @@ if(have_posts()){
                 <?php } ?>
 
 
-                <?php get_sidebar('sidebar'); ?>   
+                <div class="d-none d-lg-block">
+
+                    <?php get_sidebar('sidebar'); ?>   
+
+                </div>
+                
                 
                 
                 <!--//THEME ADS (PC) -->
