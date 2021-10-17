@@ -169,6 +169,19 @@ if(have_posts()){
                     <?php get_sidebar('sidebar'); ?>   
 
                 </div>
+
+                <!--CURSO COMPLETO DE WORDPRESS (PC) -->
+                <div class="pt-4 d-none d-xl-block sticky-top">
+
+                    <a href="https://bit.ly/3kb2We3" target="_blank">
+                        <img src="https://img-c.udemycdn.com/course/750x422/1111518_cec6_21.jpg" class="img-fluid rounded" alt="Curso Completo de WordPress">
+                    </a>
+
+                    <a href="https://bit.ly/3kb2We3" target="_blank" class="text-decoration-none text-body">
+                        <h3 class="h6 pt-2"><small>Curso Completo de WordPress + Divi, ¡Desde 0 Hasta Experto!</small></h3>
+                    </a>
+
+                </div>  
                 
 
             </div>

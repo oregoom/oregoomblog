@@ -37,12 +37,13 @@
     <!--//GOOGLE ADSENSE (PC y Movil) -->
     <?php if(get_option('template_oregoom_adsense_160_600') != ''  && esc_textarea(get_option('template_oregoom_uasr_google_adsense')) == 'template_oregoom_uasr_google_adsense_yes'){ ?>    
         
-        <div class="pb-4 text-center d-xl-none">
+        <div class="text-center d-xl-none">
 
             <?php  echo get_option('template_oregoom_adsense_160_600'); ?>
 
         </div>    
     
     <?php } ?>
+
 
 <!--</div>-->
