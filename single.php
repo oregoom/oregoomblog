@@ -106,63 +106,58 @@ if(have_posts()){
         </div>
         
         
-        <div class="row px-xxl-5">
+        <div class="row px-xxl-3">
 
-            <div class="col-xxl-9 col-xl-8 col-lg-9">
-
-                <div class="pe-xxl-5">
+            <div class="col-xxl-8 col-xl-8 col-lg-9">
                 
-                    <!-- Vídeo de YouTube (Escritorio) -->
-                    <?php if(get_post_meta(get_the_ID(), 'hb_idyoutube_post', true)){ 
-                        
-                        $ID_YouTube = get_post_meta(get_the_ID(), 'hb_idyoutube_post', true); ?>
-
-                        <div class="pb-4 text-center">
-                            <a target="_blank" href="https://www.youtube.com/watch?v=<?php echo $ID_YouTube; ?>">
-                                <img src="<?php echo get_the_post_thumbnail_url(); ?>" class="img-fluid">
-                            </a>                        
-                        </div>
+                <!-- Vídeo de YouTube (Escritorio) -->
+                <?php if(get_post_meta(get_the_ID(), 'hb_idyoutube_post', true)){ 
                     
-                        <div class="text-center mb-4 d-grid ">
-                            <a class="btn btn-primary btn-lg btn-block rounded-pill" target="_blank" href="https://www.youtube.com/watch?v=<?php echo $ID_YouTube; ?>">Ver video tutorial</button>
-                        </div>
+                    $ID_YouTube = get_post_meta(get_the_ID(), 'hb_idyoutube_post', true); ?>
 
-                    <?php } else {
-                        
-                        //IMG destacada de POST
-                        if( has_post_thumbnail() ) {
+                    <div class="pb-4 text-center">
+                        <a target="_blank" href="https://www.youtube.com/watch?v=<?php echo $ID_YouTube; ?>">
+                            <img src="<?php echo get_the_post_thumbnail_url(); ?>" class="img-fluid">
+                        </a>                        
+                    </div>
+                
+                    <div class="text-center mb-4 d-grid ">
+                        <a class="btn btn-primary btn-lg btn-block rounded-pill" target="_blank" href="https://www.youtube.com/watch?v=<?php echo $ID_YouTube; ?>">Ver video tutorial</button>
+                    </div>
 
-                            the_post_thumbnail('full', array( 'class' => 'img-fluid mb-4' )); 
-
-                        } 
-                        
-                    } ?>
+                <?php } else {
                     
+                    //IMG destacada de POST
+                    if( has_post_thumbnail() ) {
+
+                        the_post_thumbnail('full', array( 'class' => 'img-fluid mb-4' )); 
+
+                    } 
                     
+                } ?>
+                
+                
+                
+                <!--//GOOGLE ADSENSE (Movil) -->
+                <?php if(get_option('template_oregoom_adsense_auto') != ''  && esc_textarea(get_option('template_oregoom_uasr_google_adsense')) == 'template_oregoom_uasr_google_adsense_yes'){ ?>     
+
+                    <div class="pb-4 d-lg-none text-center">
+
+                        <?php  echo get_option('template_oregoom_adsense_auto'); ?>
+
+                    </div>     
+
+                <?php } ?>
                     
-                    <!--//GOOGLE ADSENSE (Movil) -->
-                    <?php if(get_option('template_oregoom_adsense_auto') != ''  && esc_textarea(get_option('template_oregoom_uasr_google_adsense')) == 'template_oregoom_uasr_google_adsense_yes'){ ?>     
+                <div class="px-xxl-5 px-xl-4">
 
-                        <div class="pb-4 d-lg-none text-center">
+                    <?php the_content(); ?>  
 
-                            <?php  echo get_option('template_oregoom_adsense_auto'); ?>
-
-                        </div>     
-
-                    <?php } ?>
-                        
-                    <div class="px-xxl-5 px-xl-4">
-
-                        <?php the_content(); ?>  
-
-                    </div>                    
+                </div>                    
                      
 
-                </div>
-
             </div>
-            <div class="col-xxl-3 col-xl-4 col-lg-3">
-
+            <div class="col-xxl-4 col-xl-4 col-lg-3">
 
                 <div class="d-none d-lg-block">
 
@@ -171,18 +166,18 @@ if(have_posts()){
                 </div>
 
                 <!--CURSO COMPLETO DE WORDPRESS (PC) -->
-                <div class="pt-4 d-none d-xl-block sticky-top">
+                <div class="px-xxl-4 px-xl-2 pt-4 d-none d-xl-block sticky-top">
 
                     <a href="https://bit.ly/3kb2We3" target="_blank">
                         <img src="https://img-c.udemycdn.com/course/750x422/1111518_cec6_21.jpg" class="img-fluid rounded" alt="Curso Completo de WordPress">
                     </a>
 
                     <a href="https://bit.ly/3kb2We3" target="_blank" class="text-decoration-none text-body">
-                        <h3 class="h6 pt-2"><small>Curso Completo de WordPress + Divi, ¡Desde 0 Hasta Experto!</small></h3>
+                        <h3 class="h5 pt-2"><small><strong>Curso Completo de WordPress + Divi, ¡Desde 0 Hasta Experto!</strong></small></h3>
+                        <p>¡Más de <span class="text-primary">2.655 alumnos</span> satisfechos!</p>
                     </a>
 
-                </div>  
-                
+                </div> 
 
             </div>
 
@@ -214,7 +209,7 @@ if(have_posts()){
     
     <p>Aprender WordPress es invertir en tu futuro personal y profesional a medio y largo plazo. Y tú estás a un paso de aprender a crear páginas y sitios webs con el mejor curso sobre WordPress que hay en la actualidad.</p>
     
-    <a href="https://oregoom.com/curso-de-wordpress/" target="_blank" class="btn btn-warning btn-lg rounded-pill ps-5 pe-5 pt-2 pb-2">
+    <a href="https://bit.ly/3kb2We3" target="_blank" class="btn btn-warning btn-lg rounded-pill ps-5 pe-5 pt-2 pb-2">
         <strong>Me Apunto Ahora</strong>
     </a>
     

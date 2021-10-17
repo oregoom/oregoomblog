@@ -11,7 +11,7 @@
     
     <?php } ?>
 
-    <div class="d-none d-xl-block">
+    <div class="d-none d-xl-block px-xxl-4 px-xl-2">
 
         <?php 
 
