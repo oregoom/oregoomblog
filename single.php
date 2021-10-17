@@ -164,36 +164,12 @@ if(have_posts()){
             <div class="col-xxl-3 col-xl-4 col-lg-3">
 
 
-                <!--//THEME ADS (PC) -->
-                <?php if(get_option('template_oregoom_theme_ads_300_250') != ''  && esc_textarea(get_option('template_oregoom_uasr_google_adsense')) == 'template_oregoom_uasr_google_adsense_yes'){ ?>    
-                            
-                    <div class="pb-4 text-center">
-            
-                        <?php  echo get_option('template_oregoom_theme_ads_300_250'); ?>
-            
-                    </div>    
-                
-                <?php } ?>
-
-
                 <div class="d-none d-lg-block">
 
                     <?php get_sidebar('sidebar'); ?>   
 
                 </div>
                 
-                
-                
-                <!--//THEME ADS (PC) -->
-                <?php if(get_option('template_oregoom_theme_ads_300_600') != ''  && esc_textarea(get_option('template_oregoom_uasr_google_adsense')) == 'template_oregoom_uasr_google_adsense_yes'){ ?>    
-                            
-                    <div class="pb-4 text-center sticky-top">
-            
-                        <?php  echo get_option('template_oregoom_theme_ads_300_600'); ?>
-            
-                    </div>    
-                
-                <?php } ?>
 
             </div>
 

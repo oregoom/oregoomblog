@@ -26,7 +26,7 @@
     <!--//GOOGLE ADSENSE (PC y Movil) -->
     <?php if(get_option('template_oregoom_adsense_300_600') != ''  && esc_textarea(get_option('template_oregoom_uasr_google_adsense')) == 'template_oregoom_uasr_google_adsense_yes'){ ?>    
                 
-        <div class="pb-4 text-center d-none d-xl-block">
+        <div class="pb-4 text-center d-none d-xl-block sticky-top">
 
             <?php  echo get_option('template_oregoom_adsense_300_600'); ?>
 
